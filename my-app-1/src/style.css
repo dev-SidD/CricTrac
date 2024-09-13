@@ -1,0 +1,348 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif; /* Replace with your chosen font */
+}
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif; /* Optional for headings */
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #93C54B; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.516);
+    z-index: 1;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  .logo-title{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(41, 41, 41);
+  }
+  .logo {
+    height: 50px; 
+  }
+  /* SearchBar.css */
+  
+.search-bar {
+    display: flex;
+    align-items: center;
+    max-width:500px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    
+  }
+  
+  .search-input {
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid rgba(87, 87, 87, 0.699);
+    border-radius: 8px;
+    margin-right: 8px;
+    width: 400px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.82);
+  }
+  
+  .search-button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    background-color: #93C54B;
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #7ca742;
+  }
+  /* CricketerStats.css */
+  .cricketerName{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 4px;
+  }
+.cricketer-stats {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0px auto;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.34);
+}
+.img-container{
+  width: 38%;
+}
+.stat-container{
+  margin: auto;
+  width: 55%;
+}
+
+.cricketer-stats h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cricketer-image {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ddd;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.stat-value {
+  font-weight: normal;
+  font-size: 20px;
+  
+}
+.format-select{
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 200px; 
+  overflow: hidden;
+
+}
+.format{
+  transition: all 0.2s ease-in-out;
+  padding: 10px 20px;
+  background-color: #93C54B;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-bottom: none;
+  border-top: none;
+}
+.active{
+  transition: all 0.2s ease-in-out;
+  background-color:#a0d655 ;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+.format:hover{
+ 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.default{
+  text-align: center;
+  font-size: 45px;
+  color: rgba(0, 0, 0, 0.29);
+}
+
+/* src/LiveScore.css */
+.live-score {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.match-info {
+  text-align: center;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.team {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 45%;
+}
+
+.team h3 {
+  margin-top: 0;
+}
+
+.team p {
+  margin: 5px 0;
+}
+
+nav ul{
+  display: flex;
+  justify-content: center;
+}
+nav ul li{
+  list-style: none;
+}
+nav ul li a{
+  padding: 5px 10px;
+  text-decoration: none;
+  color: rgb(58, 58, 58);
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+nav ul li a:hover{
+ font-size: larger;
+ color: rgb(0, 0, 0);
+}
+
+.home{
+  max-width: 70%;
+  margin: 150px auto; 
+  text-align: center;
+}
+.home h2{
+  font-size: 55px;
+}
+.home p{
+   font-size: 20px;
+}
+.home h2, .home p{
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   text-wrap: wrap;
+}
+/* src/style.css */
+
+
+
+.match {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+.match:hover {
+  background-color: #f9f9f9; /* Lighten background on hover */
+  border-color: #ccc;        /* Change border color on hover */
+  transform: scale(1.02);    /* Slightly enlarge the element on hover */
+}
+
+
+.teams {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.team {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 45%;
+  text-align: center;
+}
+
+.team-logo {
+  max-width: 50px;
+  margin-bottom: 10px;
+}
+
+.team h4 {
+  margin-top: 0;
+}
+
+.team p {
+  margin: 5px 0;
+}
+.live{
+  color: red;
+}
+
+.full-scorecard {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.scorecard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.scorecard-table th, .scorecard-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.scorecard-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.scorecard-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.scorecard-table tr:hover {
+  background-color: #ddd;
+}
+
+h2, h3, h4 {
+  margin: 10px 0;
+}
+
+.innings{
+  font-size: 20px;
+  background-color: #93C54B;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.close-btn {
+  position: relative; /* No longer absolute, as it will be placed in the flow */
+  display: inline-block;
+  background-color: #93C54B; /* Same color as the header */
+  color: white;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+  margin-top: 20px; /* Spacing below the header */
+  margin-right: 20px; /* Add some margin on the right */
+  float: right; /* Float the button to the right */
+}
+
+.close-btn:hover {
+  background-color: #7ca742; /* Slightly darker green on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
