@@ -4,7 +4,7 @@ import '../style.css';
 
 const FullCricketScorecard = (props) => {
   const [matchData, setMatchData] = useState(null);
-  const url = `https://api.cricapi.com/v1/match_scorecard?apikey=d8f5f19a-4a26-47ad-9a3e-94e8308c449a&id=${props.match}`;
+  const url = `https://api.cricapi.com/v1/match_scorecard?apikey=f7037817-03f0-47e2-a151-d617171d4222&id=${props.match}`;
 
   useEffect(() => {
     const fetchMatches = async () => {
