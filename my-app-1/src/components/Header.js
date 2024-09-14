@@ -1,10 +1,10 @@
 import React from 'react'
 import "../style.css"
 import { Link } from 'react-router-dom';
-
+import 'animate.css';
 function Header() {
   return (
-    <header className="header">
+    <header className="header animate__animated animate__bounceInDown">
       <div className="logo-container">
         <img src="../images/logo.png" alt="Criktrac Logo" className="logo" />
         <h1 className='logo-title'>Criktrac</h1>

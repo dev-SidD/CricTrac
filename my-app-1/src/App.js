@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import LiveScore from './components/LiveScore';
-import FullCricketScorecard from './components/FullCricketScoreboard';
+import 'animate.css';
 import './style.css';
+import { TypeAnimation } from 'react-type-animation';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchBar />} />
           <Route path="/live" element={<LiveScore />} />
-          {/* <Route path="/score" element={<FullCricketScorecard />} /> */}
+        
 
 
         </Routes>
@@ -28,8 +29,23 @@ function App() {
 const Home = () => (
   <div className='home'>
     
-      <h2>Welcome to the Live Cricket Score Application</h2>
-      <p>Here you can watch live cricket scores, upcoming match schedules and player statistics</p>
+      <h2 className='animate__animated animate__bounceInDown'>Criktrac</h2>
+      <br/>
+      <p className='animate__animated animate__bounceInDown'><TypeAnimation
+        preRenderFirstString={true}
+  sequence={[
+    // Same substring at the start will only be typed once, initially
+    'Welcome to Crictrac',
+    1000,
+    'Here you can watch live score',
+    1000,
+    'Here you can watch player stats',
+    1000,
+  ]}
+  speed={50}
+  style={{ fontSize: '25px' }}
+  repeat={Infinity}
+/></p>
     
   </div>
 );
