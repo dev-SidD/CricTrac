@@ -338,7 +338,7 @@ h2, h3, h4 {
   transition: all 0.3s ease-in-out; /* Smooth transition */
   margin-top: 20px; /* Spacing below the header */
   margin-right: 20px; /* Add some margin on the right */
-  float: right; /* Float the button to the right */
+  /* Float the button to the right */
 }
 
 .close-btn:hover {
