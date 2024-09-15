@@ -67,7 +67,7 @@ const LiveScore = () => {
       {watchScorecard && selectedMatch ? (
         <>
           {/* Full Scorecard */}
-          <button className='close-btn' onClick={hideScore}>X</button>
+          <button className='close-btn' onClick={hideScore}><img src='../images/back.png' width='50px' alt='' /></button>
           <FullCricketScorecard match={selectedMatch} />
         </>
       ) : (

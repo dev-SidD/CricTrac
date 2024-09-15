@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'animate.css';
 function Header() {
   return (
-    <header className="header animate__animated animate__bounceInDown">
+    <header className="header animate__animated animate__slideInDown">
       <div className="logo-container">
         <img src="../images/logo.png" alt="Criktrac Logo" className="logo" />
         <h1 className='logo-title'>Criktrac</h1>

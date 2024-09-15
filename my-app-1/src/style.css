@@ -23,7 +23,6 @@ h1, h2, h3 {
     background-color: #ffffff00; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.516);
     z-index: 1;
-    animation-delay: 400ms;
     
   }
   
@@ -243,7 +242,7 @@ nav ul li a:hover{
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    text-wrap: wrap;
    color: #cfcfcf;
-   
+   animation-delay: 1s;
 }
 /* src/style.css */
 
@@ -304,6 +303,8 @@ nav ul li a:hover{
 .full-scorecard {
   margin: 20px;
   font-family: Arial, sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text for readability */
 }
 
 .scorecard-table {
@@ -313,75 +314,78 @@ nav ul li a:hover{
 }
 
 .scorecard-table th, .scorecard-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #333; /* Darker border */
   padding: 8px;
   text-align: left;
+  color: #e0e0e0; /* Light text for table cells */
 }
 
 .scorecard-table th {
-  background-color: #f2f2f2;
+  background-color: #1e1e1e; /* Darker header background */
   font-weight: bold;
 }
 
 .scorecard-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #1a1a1a; /* Slightly lighter rows */
 }
 
 .scorecard-table tr:hover {
-  background-color: #ddd;
+  background-color: #333; /* Hover effect for rows */
 }
 
 h2, h3, h4 {
   margin: 10px 0;
+  color: #e0e0e0; /* Light heading colors */
 }
 
-.innings{
+.innings {
   font-size: 20px;
-  background-color: #93C54B;
+  background-color: #2d7d46; /* Dark green for inning section */
+  color: #fff;
   padding: 10px;
   display: flex;
   justify-content: space-between;
 }
+
 .close-btn {
-  position: relative; /* No longer absolute, as it will be placed in the flow */
+  position: relative;
   display: inline-block;
-  background-color: #93C54B; /* Same color as the header */
+  background-color: #ffffff00; /* Same dark green as innings */
   color: white;
   border: none;
-  border-radius: 50%; /* Circular button */
-  padding: 10px 15px;
   cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
-  transition: all 0.3s ease-in-out; /* Smooth transition */
-  margin-top: 20px; /* Spacing below the header */
-  margin-right: 20px; /* Add some margin on the right */
-  /* Float the button to the right */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 50%;
 }
 
+
 .close-btn:hover {
-  background-color: #7ca742; /* Slightly darker green on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  /* Slightly darker green on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+  transform: scale(1.1);
 }
+
 @media screen and (max-width: 768px) {
   .cricketer-stats {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .img-container, .stat-container {
-      width: 100%;
+    width: 100%;
   }
 
   .search-input {
-      width: 100%;
+    width: 100%;
   }
 
   .teams {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   .team {
-      width: 100%;
+    width: 100%;
   }
 }

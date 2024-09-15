@@ -31,10 +31,12 @@ const Home = () => (
     
       <h2 className='animate__animated animate__bounceInDown'>Criktrac</h2>
       <br/>
-      <p className='animate__animated animate__bounceInDown'><TypeAnimation
+      <p><TypeAnimation
         preRenderFirstString={true}
   sequence={[
     // Same substring at the start will only be typed once, initially
+    '',
+    700,
     'Welcome to Crictrac',
     1000,
     'Here you can watch live score',
@@ -45,6 +47,7 @@ const Home = () => (
   speed={50}
   style={{ fontSize: '25px' }}
   repeat={Infinity}
+  
 /></p>
     
   </div>

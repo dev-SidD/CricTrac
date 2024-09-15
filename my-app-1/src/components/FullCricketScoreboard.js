@@ -4,7 +4,7 @@ import '../style.css';
 
 const FullCricketScorecard = (props) => {
   const [matchData, setMatchData] = useState(null);
-  const url = `https://api.cricapi.com/v1/match_scorecard?apikey=f7037817-03f0-47e2-a151-d617171d4222&id=${props.match}`;
+  const url = `https://api.cricapi.com/v1/match_scorecard?apikey=cc97b460-e3c5-41b2-a645-3e8fd5d18e8b&id=${props.match}`;
 
   useEffect(() => {
     const fetchMatches = async () => {
@@ -63,7 +63,7 @@ const FullCricketScorecard = (props) => {
       <h4>Score: {matchData.score[0]?.r}/{matchData.score[0]?.w} in {matchData.score[0]?.o} overs</h4>
 
       {/* Bowling Team 1 */}
-      <h3>Bowling Performance ({matchData.teams[1]})</h3>
+      <h3>Bowling Performance</h3>
       <table className="scorecard-table">
         <thead>
           <tr>
