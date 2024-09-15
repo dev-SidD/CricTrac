@@ -45,7 +45,6 @@ const Home = () => (
     1000,
   ]}
   speed={50}
-  style={{ fontSize: '25px' }}
   repeat={Infinity}
   
 /></p>

@@ -27,11 +27,16 @@ h1, h2, h3 {
 .logo-container {
   display: flex;
   align-items: center;
+  
+}
+a{
+  text-decoration: none;
 }
 
 .logo-title {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #00796b; /* Dark teal color */
+  color: #004d40; /* Dark teal color */
+  
 }
 
 .logo {
@@ -189,14 +194,13 @@ nav ul li {
 nav ul li a {
   padding: 5px 10px;
   text-decoration: none;
-  color: #00796b; /* Dark teal color */
+  color: #015c52; /* Dark teal color */
   font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 nav ul li a:hover {
-  font-size: larger;
-  color: #004d40; /* Darker teal color */
+  color: #003e34; /* Darker teal color */
 }
 
 /* Home Section */
@@ -205,22 +209,21 @@ nav ul li a:hover {
   margin-top: 200px;
   margin-left: auto;
   text-align: start;
-  padding: 0px 20px;
 }
 
 .home h2 {
-  font-size: 65px;
+  font-size: 100px;
   color: #004d40; /* Darker teal color */
 }
 
 .home p {
-  font-size: 25px;
+  font-size: 40px;
   color: #004d40; /* Darker teal color */
 }
 
 .home h2, .home p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  animation-delay: 1s;
+  animation-delay: 500ms;
 }
 
 /* Live Score Section */

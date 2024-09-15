@@ -5,15 +5,13 @@ import 'animate.css';
 function Header() {
   return (
     <header className="header animate__animated animate__slideInDown">
-      <div className="logo-container">
+       <Link to="/"><div className="logo-container">
         <img src="../images/logo.png" alt="Criktrac Logo" className="logo" />
         <h1 className='logo-title'>Criktrac</h1>
       </div>
+      </Link>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+        <ul> 
           <li>
             <Link to="/search">Search</Link>
           </li>
