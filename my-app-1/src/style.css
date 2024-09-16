@@ -371,7 +371,9 @@ h2, h3, h4 {
   .cricketer-stats {
       flex-direction: column;
   }
-
+   .stat-item{
+    padding: 7px;
+   }
   .img-container, .stat-container {
       width: 100%;
   }
