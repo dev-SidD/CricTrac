@@ -4,13 +4,13 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("../public/images/bg-2.jpg");
-  background-repeat: repeat-y;
-  background-size: cover;
+  background: url("../public/images/bg-1.avif");
+  background-repeat: repeat;
+  background-size: 100vh;
   background-color: #e0f7fa; /* Light blue background */
 }
 
-h1, h2, h3 {
+* {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -354,8 +354,12 @@ h2, h3, h4 {
 
 /* Media Queries for smaller screens */
 @media screen and (max-width: 1024px) {
+  body{
+    background: url("../public/images/bg-1.avif");
+  }
   .header {
-      flex-direction: column;
+      display: flex;
+      justify-content: center;
       text-align: center;
   }
 

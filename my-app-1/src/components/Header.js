@@ -16,11 +16,9 @@ function Header() {
             <Link to="/search">Search</Link>
           </li>
           <li>
-            <Link to="/live">Live Score</Link>
+            <Link to="/">Live Score</Link>
           </li>
-          {/* <li>
-            <Link to="/score">Score</Link>
-          </li> */}
+          
         </ul>
       </nav>
     </header>

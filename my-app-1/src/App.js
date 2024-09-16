@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar';
 import LiveScore from './components/LiveScore';
 import 'animate.css';
 import './style.css';
-import { TypeAnimation } from 'react-type-animation';
+
 
 function App() {
   return (
@@ -14,10 +14,8 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchBar />} />
-          <Route path="/live" element={<LiveScore />} />
-        
+          <Route path="/" element={<LiveScore />} />
 
 
         </Routes>
@@ -26,30 +24,6 @@ function App() {
   );
 }
 
-const Home = () => (
-  <div className='home'>
-    
-      <h2 className='animate__animated animate__bounceInDown'>Criktrac</h2>
-      <br/>
-      <p><TypeAnimation
-        preRenderFirstString={true}
-  sequence={[
-    // Same substring at the start will only be typed once, initially
-    '',
-    700,
-    'Welcome to Crictrac',
-    1000,
-    'Here you can watch live score',
-    1000,
-    'Here you can watch player stats',
-    1000,
-  ]}
-  speed={50}
-  repeat={Infinity}
-  
-/></p>
-    
-  </div>
-);
+
 
 export default App;
