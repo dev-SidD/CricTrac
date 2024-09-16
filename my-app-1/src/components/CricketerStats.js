@@ -10,7 +10,7 @@ const CricketerStats = (props) => {
   useEffect(() => {
     const fetchCricketerData = async () => {
       try {
-        const response = await fetch(`https://api.cricapi.com/v1/players_info?apikey=cc97b460-e3c5-41b2-a645-3e8fd5d18e8b&id=${searchedPlayer}`);
+        const response = await fetch(`https://api.cricapi.com/v1/players_info?apikey=f7037817-03f0-47e2-a151-d617171d4222&id=${searchedPlayer}`);
         const data = await response.json();
 
         const formattedData = {

@@ -29,7 +29,7 @@ const SearchBar = () => {
   const handleSearch = () => {
     
 
-      fetch(`https://api.cricapi.com/v1/players?apikey=cc97b460-e3c5-41b2-a645-3e8fd5d18e8b&offset=0&search=${toProperCase(query)}`)
+      fetch(`https://api.cricapi.com/v1/players?apikey=f7037817-03f0-47e2-a151-d617171d4222&offset=0&search=${toProperCase(query)}`)
           .then(res => res.json())
           .then(data => setPlayerID(data.data[0].id))
   
