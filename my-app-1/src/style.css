@@ -374,6 +374,9 @@ h2, h3, h4 {
    .stat-item{
     padding: 7px;
    }
+   .stat-label{
+    font-size: 15px;
+   }
   .img-container, .stat-container {
       width: 100%;
   }

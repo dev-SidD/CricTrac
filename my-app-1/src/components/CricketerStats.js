@@ -77,6 +77,11 @@ const CricketerStats = (props) => {
   return (
     
     <>
+     <div className='format-select'>
+        <div className={`format ${selectedFormat === 'test' ? 'active' : ''}`} onClick={() => setSelectedFormat('test')}>Test</div>
+        <div className={`format ${selectedFormat === 'odi' ? 'active' : ''}`} onClick={() => setSelectedFormat('odi')}>ODI</div>
+        <div className={`format ${selectedFormat === 't20i' ? 'active' : ''}`} onClick={() => setSelectedFormat('t20i')}>T20I</div>
+      </div>
       <div className="cricketer-stats">
         <div className='img-container'>
           <img src={cricketerData.image} alt={`${cricketerData.name}`} className="cricketer-image" />
@@ -130,11 +135,7 @@ const CricketerStats = (props) => {
           </div>
         </div>
       </div>
-      <div className='format-select'>
-        <div className={`format ${selectedFormat === 'test' ? 'active' : ''}`} onClick={() => setSelectedFormat('test')}>Test</div>
-        <div className={`format ${selectedFormat === 'odi' ? 'active' : ''}`} onClick={() => setSelectedFormat('odi')}>ODI</div>
-        <div className={`format ${selectedFormat === 't20i' ? 'active' : ''}`} onClick={() => setSelectedFormat('t20i')}>T20I</div>
-      </div>
+     
     </>
   );
 };
