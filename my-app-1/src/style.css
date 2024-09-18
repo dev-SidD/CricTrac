@@ -289,6 +289,7 @@ nav ul li a:hover {
   background-color: #ffffff; /* White background */
   color: #004d40; /* Darker teal color */
   border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.516);
 }
 
 .scorecard-table {
@@ -298,7 +299,7 @@ nav ul li a:hover {
 }
 
 .scorecard-table th, .scorecard-table td {
-  border: 1px solid #004d40; /* Darker teal color */
+   /* Darker teal color */
   padding: 8px;
   text-align: left;
   color: #004d40; /* Darker teal color */
@@ -329,6 +330,7 @@ h2, h3, h4 {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  border-radius: 4px;
 }
 
 .close-btn {
