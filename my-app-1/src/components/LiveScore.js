@@ -5,18 +5,16 @@ import '../style.css';
 
 const LiveScore = () => {
   const [watchScorecard, setWatchScorecard] = useState(false);
-  const [selectedMatch, setSelectedMatch] = useState(null);  // To track which match's scorecard to show
+  const [selectedMatch, setSelectedMatch] = useState(null);
 
-  // Function to show full scorecard
   function watchSore(match) {
-     setSelectedMatch(match);  // Set the match details
-     setWatchScorecard(true);  // Toggle the state to show the full scorecard
+     setSelectedMatch(match);
+     setWatchScorecard(true);
   }
 
-  // Function to hide the full scorecard and go back to live score
   function hideScore() {
     setWatchScorecard(false);
-    setSelectedMatch(null);  // Clear selected match when going back to live score
+    setSelectedMatch(null);
   }
 
   const [matches, setMatches] = useState([]);
@@ -30,7 +28,6 @@ const LiveScore = () => {
         const matchesData = response.data.data ? response.data.data : [];
         
         matchesData.forEach((match) => {
-          // If match status is "No Result", set matchEnded to true
           if (match.status === "No Result - due to rain" || match.status === "No result - due to rain") {
             match.matchEnded = true;
           }
@@ -39,7 +36,6 @@ const LiveScore = () => {
         });
 
         matchesData.sort((a, b) => {
-          // Sorting logic prioritizes live matches
           if (a.matchStarted && !a.matchEnded && !(b.matchStarted && !b.matchEnded)) {
             return -1;
           }
@@ -66,17 +62,17 @@ const LiveScore = () => {
     <>
       {watchScorecard && selectedMatch ? (
         <>
-          {/* Full Scorecard */}
         <img className='close-btn' onClick={hideScore} src='../images/back.png' width='50px' alt='' />
           <FullCricketScorecard match={selectedMatch} />
         </>
       ) : (
         <div className="live-score">
-          {/* Live Scores */}
           {matches.map((match) => 
             {if(match.matchType !== "test") {
-               return(<div onClick={() => watchSore(match.id)} key={match.id} className="match">
-                   <h3>{match.name} {match.matchStarted && !match.matchEnded && (
+               return(
+               <div onClick={() => watchSore(match.id)} key={match.id} className="match">
+                   <h3>{match.name} 
+                     {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps') && (
                      <span className='live'>Live</span>
                    )}</h3>
                    <p>Status: {match.matchStarted ? match.status : 'Not Started'}</p>
@@ -100,10 +96,11 @@ const LiveScore = () => {
                        ))}
                      </div>
                    )}
-                 </div>)}
-             else {
+                 </div>)
+            } else {
               return(<div key={match.id} className="match">
-                   <h3>{match.name} {match.matchStarted && !match.matchEnded && (
+                   <h3>{match.name} 
+                     {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps') && (
                      <span className='live'>Live</span>
                    )}</h3>
                    <p>Status: {match.matchStarted ? match.status : 'Not Started'}</p>

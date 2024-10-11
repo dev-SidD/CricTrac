@@ -14,8 +14,8 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/search" element={<SearchBar />} />
-          <Route path="/" element={<LiveScore />} />
+          <Route path="/" element={<SearchBar />} />
+          <Route path="/live" element={<LiveScore />} />
 
 
         </Routes>
