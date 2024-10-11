@@ -5,7 +5,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: url("../public/images/bg-1.avif") no-repeat center center fixed;
-  background-size: 80vh; /* Ensures the image covers the entire area */
+  background-size: 80vh; 
   
 }
 
