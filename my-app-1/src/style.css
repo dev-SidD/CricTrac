@@ -1,130 +1,184 @@
+/* General Style Improvements */
 * {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("../public/images/bg-1.avif") no-repeat center center fixed;
-  background-size: 80vh; 
-  
-}
-
-
-* {
-  font-family: 'Roboto', sans-serif;
+  background: url("../public/images/bg-1.avif") no-repeat center fixed ;
+ 
 }
 
 .header {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: #ffffff00;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.516);
-  z-index: 1;
+  background: linear-gradient(45deg, #004d40, #00796b);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   justify-content: space-between;
 }
+.header a{
+  color: rgb(219, 219, 219);
+}
+
+
 
 .logo-container {
   display: flex;
   align-items: center;
-  
+  transition: transform 0.3s ease;
 }
-a{
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+a {
   text-decoration: none;
+  color: white;
 }
 
 .logo-title {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #004d40; /* Dark teal color */
-  
+  color: #e0f2f1;
+  font-size: 24px;
+  margin-left: 8px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .logo {
-  height: 50px;
+  height: 60px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
+.logo:hover {
+  transform: rotate(360deg);
+}
+
+/* Search Bar Section */
 .search-bar {
   display: flex;
   align-items: center;
+  justify-content: center;
   max-width: 500px;
-  margin: 20px auto;
-  padding: 4px 20px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
 }
 
 .search-input {
-  padding: 12px;
-  font-size: 15px;
-  border: 1px solid rgba(87, 87, 87, 0.699);
-  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
   margin-right: 8px;
   width: 100%;
   outline: none;
-  color: #00796b; /* Dark teal color */
-  background-color: #ffffff; /* White background for input */
+  color: #004d40;
+  background: transparent;
 }
 
 .search-button {
-  padding: 12px;
-  font-size: 15px;
+  padding: 10px 18px;
+  font-size: 14px;
   border: none;
-  background-color: #00796b; /* Dark teal color */
-  color: #ffffff; /* White text */
-  border-radius: 8px;
+  background: linear-gradient(45deg, #004d40, #00796b);
+  color: #ffffff;
+  border-radius: 25px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: #004d40; /* Darker teal color */
-  border: 1px solid gray;
+  background: linear-gradient(45deg, #00796b, #004d40);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* CricketerStats.css */
+/* Cricketer Stats Section */
 .cricketerName {
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #004d40; /* Darker teal color */
-  margin: 4px;
+  color: #004d40;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.cricketerName:hover {
+  color: #00796b;
 }
 
 .cricketer-stats {
-  max-width: 1000px;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   margin: 0px auto;
-  padding: 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #ffffff; /* White background */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.34);
+  padding: 25px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .img-container {
-  width: 38%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stat-container {
-  margin: auto;
-  width: 55%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cricketer-stats h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #00796b; /* Dark teal color */
+  margin-bottom: 15px;
+  color: #00796b;
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .cricketer-image {
   display: block;
-  margin: 0 auto 20px;
-  max-width: 100%;
-  border-radius: 8px;
+  margin: 0 auto 15px;
+  max-width: 80%;
+  border-radius: 12px;
+  border: 5px solid #00796b;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cricketer-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .stat-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0px;
+  padding: 12px 5px;
   border-bottom: 1px solid #ddd;
+}
+
+.stat-item:hover {
+  background-color: #f1f1f1;
 }
 
 .stat-item:last-child {
@@ -132,51 +186,67 @@ a{
 }
 
 .stat-label {
-  font-weight: bold;
-  color: #00796b; /* Dark teal color */
+  font-weight: 600;
+  color: #004d40;
   font-size: 18px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .stat-value {
-  font-weight: normal;
-  font-size: 15px;
-  color: #00796b; /* Dark teal color */
+  font-weight: 500;
+  font-size: 16px;
+  color: #00796b;
 }
 
 .format-select {
   display: flex;
   justify-content: center;
-  margin: auto;
-  max-width: 200px;
+  margin: 1px auto;
+  max-width: fit-content;
   overflow: hidden;
-  border-radius: 8px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+
 }
 
 .format {
-  transition: all 0.2s ease-in-out;
-  padding: 10px 20px;
-  background-color: #00796b; /* Dark teal color */
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 12px 18px;
+  background: linear-gradient(20deg, #00796b, #004d40);
   color: white;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.active {
-  background-color: #004d40; /* Darker teal color */
-  color: white;
+.format.active {
+  background: linear-gradient(40deg, #002c24, #014840);
+  color: #e0f2f1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .format:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform: scale(1.08);
+  background: linear-gradient(40deg, #002c24, #014840);
 }
 
 .default {
   text-align: center;
-  font-size: 45px;
-  color: #004d40; /* Darker teal color */
+  font-size: 40px;
+  color: #004d40;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(40deg, #00796b, #004d40);
+  -webkit-background-clip: text;
+  background-clip: text;
+
 }
+
+
+
 
 .match-info {
   text-align: center;
