@@ -72,7 +72,8 @@ const LiveScore = () => {
                return(
                <div onClick={() => watchSore(match.id)} key={match.id} className="match">
                    <h3>{match.name} 
-                     {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps') && (
+                     {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps') && 
+                     !match.status.toLowerCase().includes('no result') && (
                      <span className='live'>Live</span>
                    )}</h3>
                    <p>Status: {match.matchStarted ? match.status : 'Not Started'}</p>
@@ -83,7 +84,7 @@ const LiveScore = () => {
                      <div className="teams">
                        {match.teamInfo.map((team, index) => (
                          <div key={index} className="team">
-                           <img src={team.img} alt={team.name} className="team-logo" />
+                           <img src={team.img} alt={team.name}  className="team-logo" />
                            <h4>{team.name}</h4>
                            {match.score && match.score.map((inning, index) => (
                              inning.inning.includes(team.name) && (

@@ -7,104 +7,198 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("../public/images/bg-1.avif") no-repeat center fixed ;
- 
+  background: url("../public/images/bg-1.avif") no-repeat center center fixed;  
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  color: #fff;
+  min-height: 100vh;
 }
 
+/* Optional overlay effect */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.603); /* Dark overlay for text visibility */
+  z-index: -1;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  body {
+    background-attachment: fixed; /* Prevents performance issues on smaller devices */
+  }
+}
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* Header */
 .header {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 5px;
   background: linear-gradient(45deg, #004d40, #00796b);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-.header a{
+
+.header a {
   color: rgb(219, 219, 219);
+  text-decoration: none;
 }
 
-
-
+/* Logo Container */
 .logo-container {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
+  gap: 12px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .logo-container:hover {
-  transform: scale(1.05);
-}
-
-a {
-  text-decoration: none;
-  color: white;
+  transform: scale(1.1) rotate(3deg);
 }
 
 .logo-title {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
   color: #e0f2f1;
-  font-size: 24px;
-  margin-left: 8px;
+  font-size: 22px;
   font-weight: bold;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
   height: 60px;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  border: 4px solid #e0f2f1;
+  transition: transform 0.6s ease, border-color 0.4s ease;
 }
 
 .logo:hover {
-  transform: rotate(360deg);
+  transform: rotate(360deg) scale(1.1);
+  border-color: #ffffff;
 }
 
-/* Search Bar Section */
+/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background: rgb(255, 255, 255);
-  border-radius: 30px;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 12px 25px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 40px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .search-bar:hover {
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
 }
 
 .search-input {
-  padding: 8px;
-  font-size: 16px;
+  padding: 12px 20px;
+  font-size: 20px;
   border: none;
-  margin-right: 8px;
   width: 100%;
   outline: none;
   color: #004d40;
   background: transparent;
+  font-family: 'Roboto', sans-serif;
+}
+
+.search-input::placeholder {
+  color: rgba(0, 77, 64, 0.7);
+  font-style: italic;
 }
 
 .search-button {
-  padding: 10px 18px;
-  font-size: 14px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
   background: linear-gradient(45deg, #004d40, #00796b);
-  color: #ffffff;
-  border-radius: 25px;
+  color: white;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .search-button:hover {
   background: linear-gradient(45deg, #00796b, #004d40);
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
 }
+
+.search-button:active {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 12px #00796b;
+  transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+  .header a{
+    font-size: 15px;
+  }
+
+  .logo-title {
+    font-size: 18px;
+  }
+
+  .search-bar {
+    padding: 8px 15px;
+    width: 90%;
+  }
+
+  .search-input {
+    font-size: 18px;
+  }
+
+  .search-button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 50px;
+  }
+
+  .search-bar {
+    padding: 8px 15px;
+    width: 80%;
+  }
+
+  .search-input {
+    font-size: 18px;
+  }
+
+  .search-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
 
 /* Cricketer Stats Section */
 .cricketerName {
@@ -123,7 +217,7 @@ a {
 }
 
 .cricketer-stats {
-  max-width: 1200px;
+  max-width: 1000px;
   display: flex;
   justify-content: space-between;
   margin: 0px auto;
@@ -137,11 +231,12 @@ a {
   width: 45%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
 .stat-container {
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -173,7 +268,7 @@ a {
 .stat-item {
   display: flex;
   justify-content: space-between;
-  padding: 12px 5px;
+  padding: 10px 5px;
   border-bottom: 1px solid #ddd;
 }
 
@@ -248,13 +343,12 @@ a {
 
 
 
-.match-info {
-  text-align: center;
-}
+
 
 nav ul {
   display: flex;
   justify-content: center;
+  gap: 7px;
 }
 
 nav ul li {
@@ -262,15 +356,44 @@ nav ul li {
 }
 
 nav ul li a {
-  padding: 5px 10px;
+  padding: 8px 16px;
   text-decoration: none;
-  color: #015c52; /* Dark teal color */
-  font-size: 20px;
+  color: #015c52;
+  font-size: 18px;
+  font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(45deg, #00c9a7, #00796b);
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav ul li a::after {
+  top: 0;
+  bottom: auto;
 }
 
 nav ul li a:hover {
-  color: #003e34; /* Darker teal color */
+  color: #003e34;
+  transform: translateY(-3px);
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1);
 }
 
 /* Home Section */
@@ -295,89 +418,152 @@ nav ul li a:hover {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation-delay: 500ms;
 }
-
+.match-info {
+  text-align: center;
+}
 /* Live Score Section */
+/* Live Score Container */
+/* Live Score */
 .live-score {
   max-width: 800px;
   margin: auto;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light gray background */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Match Container */
 .match {
-  padding: 20px;
-  margin: 20px;
+  padding: 25px;
+  margin: 20px 0;
   border: 1px solid #004d40; /* Darker teal color */
-  border-radius: 8px;
-  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  background-color: #ffffff;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  color: #00796b; /* Dark teal color */
+  transition: all 0.3s ease-in-out;
+  color: #00796b;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .match:hover {
   background-color: #e0f2f1; /* Light teal color */
   border-color: #00796b; /* Dark teal color */
-  transform: scale(1.02);
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Team Section */
 .teams {
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
 }
 
+/* Individual Team Box */
 .team {
-  border: 1px solid #00796b; /* Dark teal color */
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #ffffff; /* White background */
+  border: 2px solid #00796b; /* Dark teal color */
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ffffff, #e0f2f1); /* Gradient background */
   width: 45%;
   text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.team:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(45deg, #e0f2f1, #ffffff); /* Reversed gradient for hover effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Team Logo Styling */
 .team-logo {
-  max-width: 50px;
-  margin-bottom: 10px;
+  max-width: 60px;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Circular logos */
+  transition: transform 0.3s ease;
 }
 
+.team-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Team Text Styling */
 .team h4 {
   margin-top: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #004d40; /* Darker teal for team name */
+  text-transform: uppercase;
 }
 
 .team p {
   margin: 5px 0;
+  font-size: 16px;
+  color: #00796b; /* Dark teal for team stats */
+  font-weight: 500;
 }
 
+/* Live Status */
 .live {
   color: red;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: #fff;
+  padding: 4px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 /* Full Scorecard */
+/* Full Scorecard Container */
 .full-scorecard {
-  padding: 10px;
-  margin: 20px;
-  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 20px auto;
+  font-family: 'Roboto', sans-serif;
   background-color: #ffffff; /* White background */
   color: #004d40; /* Darker teal color */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.516);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
 }
 
+.full-scorecard:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Scorecard Table */
 .scorecard-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
+/* Table Header */
 .scorecard-table th, .scorecard-table td {
-   /* Darker teal color */
-  padding: 8px;
+  padding: 12px 18px;
   text-align: left;
   color: #004d40; /* Darker teal color */
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .scorecard-table th {
-  background-color: #e0f2f1; /* Light teal color */
+  background: linear-gradient(45deg, #00796b, #004d40);
+  color: #ffffff; /* White text */
   font-weight: bold;
+  
 }
 
 .scorecard-table tr:nth-child(even) {
@@ -386,57 +572,115 @@ nav ul li a:hover {
 
 .scorecard-table tr:hover {
   background-color: #b2dfdb; /* Slightly darker teal color */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* Headings */
 h2, h3, h4 {
-  margin: 10px 0;
-  color: #004d40; /* Darker teal color */
+  margin: 20px 0;
+  color: #004d40;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
+h2:hover, h3:hover, h4:hover {
+  color: #00796b;
+}
+
+/* Innings Section */
 .innings {
-  font-size: 20px;
-  background-color: #004d40; /* Darker teal color */
+  font-size: 22px;
+  background: linear-gradient(45deg, #004d40, #00796b); /* Gradient background */
   color: #ffffff; /* White text */
-  padding: 10px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
-  border-radius: 4px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+.innings .inning-label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.innings .inning-score {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* Close Button */
 .close-btn {
   position: relative;
   display: inline-block;
-  background-color: #00796b00; /* Dark teal color */
+  background-color: #00796b; /* Dark teal color */
   color: white;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 50%;
-  padding: 0px;
-  border: none;
+  padding: 12px;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.close-btn:hover  {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+.close-btn:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transform: scale(1.1);
+  background-color: #004d40; /* Darker teal on hover */
+}
+
+.close-btn:focus {
+  outline: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .full-scorecard {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  .scorecard-table th, .scorecard-table td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .scorecard-table th {
+    font-size: 16px;
+  }
+
+  .inning-label, .inning-score {
+    font-size: 16px;
+  }
+
+  .close-btn {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .teams {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Media Queries for smaller screens */
 @media screen and (max-width: 1024px) {
-
-  .header {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-  }
-
-  .home {
-      max-width: 90%;
-      margin-top: 100px;
-  }
 
   .cricketer-stats {
       flex-direction: column;
