@@ -18,8 +18,8 @@ const LiveScore = () => {
   }
 
   const [matches, setMatches] = useState([]);
-  const apiKey = 'f7037817-03f0-47e2-a151-d617171d4222';
-  const url = `https://api.cricapi.com/v1/currentMatches?apikey=${apiKey}&offset=15`;
+  const apiKey = 'c909a736-2dfc-405f-af54-9af008b0075c';
+  const url = `https://api.cricapi.com/v1/currentMatches?apikey=${apiKey}&offset=1`;
 
   useEffect(() => {
     const fetchMatches = async () => {
