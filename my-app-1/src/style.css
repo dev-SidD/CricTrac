@@ -554,9 +554,10 @@ nav ul li a:hover::after {
   font-size: 16px;
   font-weight: 500;
 }
-
-.scorecard-table th {
+.scorecard-table thead{
   background: linear-gradient(45deg, #00796b, #004d40);
+}
+.scorecard-table th {
   color: #ffffff; /* White text */
   font-weight: bold;
   
