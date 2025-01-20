@@ -58,6 +58,57 @@ body::before {
   color: rgb(219, 219, 219);
   text-decoration: none;
 }
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #015c52;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(45deg, #00c9a7, #00796b);
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav ul li a::after {
+  top: 0;
+  bottom: auto;
+}
+
+nav ul li a:hover {
+  color: #003e34;
+  transform: translateY(-3px);
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
 
 /* Logo Container */
 .logo-container {
@@ -340,61 +391,6 @@ body::before {
 
 }
 
-
-
-
-
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-}
-
-nav ul li {
-  list-style: none;
-}
-
-nav ul li a {
-  padding: 8px 16px;
-  text-decoration: none;
-  color: #015c52;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a::before,
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(45deg, #00c9a7, #00796b);
-  left: 0;
-  bottom: 0;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-nav ul li a::after {
-  top: 0;
-  bottom: auto;
-}
-
-nav ul li a:hover {
-  color: #003e34;
-  transform: translateY(-3px);
-}
-
-nav ul li a:hover::before,
-nav ul li a:hover::after {
-  transform: scaleX(1);
-}
 
 /* Home Section */
 .home {
