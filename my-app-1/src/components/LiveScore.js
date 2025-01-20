@@ -68,7 +68,7 @@ const LiveScore = () => {
       ) : (
         <div className="live-score">
           {matches.map((match) => {
-            if (match.matchType !== "test") {
+            
               return ( match.teamInfo &&
                 <div onClick={() => watchSore(match.id)} key={match.id} className="match">
                   <h3>{match.name}
@@ -98,36 +98,36 @@ const LiveScore = () => {
                     </div>
                   )}
                 </div>)
-            } else {
-              return (match.teamInfo && <div key={match.id} className="match">
-                <h3>{match.name}
-                  {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps')
-                    && !match.status.toLowerCase().includes('no result') && (
-                      <span className='live'>Live</span>
-                    )}</h3>
-                <p>Status: {match.matchStarted ? match.status : 'Not Started'}</p>
-                <p>Venue: {match.venue}</p>
-                <p>Date: {new Date(match.dateTimeGMT).toLocaleString()}</p>
+            // } else {
+            //   return (match.teamInfo && <div key={match.id} className="match">
+            //     <h3>{match.name}
+            //       {match.matchStarted && !match.matchEnded && !match.status.toLowerCase().includes('stumps')
+            //         && !match.status.toLowerCase().includes('no result') && (
+            //           <span className='live'>Live</span>
+            //         )}</h3>
+            //     <p>Status: {match.matchStarted ? match.status : 'Not Started'}</p>
+            //     <p>Venue: {match.venue}</p>
+            //     <p>Date: {new Date(match.dateTimeGMT).toLocaleString()}</p>
 
-                {match.teamInfo && (
-                  <div className="teams">
-                    {match.teamInfo.map((team, index) => (
-                      <div key={index} className="team">
-                        <img src={team.img} alt={team.name} className="team-logo" />
-                        <h4>{team.name}</h4>
-                        {match.score && match.score.map((inning, index) => (
-                          inning.inning.includes(team.name) && (
-                            <p key={index}>
-                              {inning.inning}: {inning.r}/{inning.w} in {inning.o} overs
-                            </p>
-                          )
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>)
-            }
+            //     {match.teamInfo && (
+            //       <div className="teams">
+            //         {match.teamInfo.map((team, index) => (
+            //           <div key={index} className="team">
+            //             <img src={team.img} alt={team.name} className="team-logo" />
+            //             <h4>{team.name}</h4>
+            //             {match.score && match.score.map((inning, index) => (
+            //               inning.inning.includes(team.name) && (
+            //                 <p key={index}>
+            //                   {inning.inning}: {inning.r}/{inning.w} in {inning.o} overs
+            //                 </p>
+            //               )
+            //             ))}
+            //           </div>
+            //         ))}
+            //       </div>
+            //     )}
+            //   </div>)
+            // }
           }
           )}
         </div>
