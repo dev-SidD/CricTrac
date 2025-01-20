@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("../public/images/bg-1.avif") no-repeat center center fixed;  
+  background: url("../public/images/bg-1.avif") no-repeat center fixed;  
   background-blend-mode: overlay;
   background-attachment: fixed;
   color: #fff;
@@ -20,7 +20,7 @@ body::before {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.603); /* Dark overlay for text visibility */
+  background: rgb(255 255 255 / 0%); /* Dark overlay for text visibility */
   z-index: -1;
 }
 
@@ -45,7 +45,7 @@ body::before {
 .header {
   display: flex;
   align-items: center;
-  padding: 10px 5px;
+  padding:  5px;
   background: linear-gradient(45deg, #004d40, #00796b);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   justify-content: space-between;
