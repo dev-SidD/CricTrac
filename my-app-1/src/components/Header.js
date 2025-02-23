@@ -13,10 +13,10 @@ function Header() {
       <nav>
         <ul> 
           <li>
-            <Link to="/">Search</Link>
+            <Link to="/search">Search</Link>
           </li>
           <li>
-            <Link to="/live">Live Score</Link>
+            <Link to="/">Live Score</Link>
           </li>
           
         </ul>
