@@ -5,6 +5,7 @@ import '../PlayerStats.css';
 const RAPIDAPI_KEY = '41b9c77e66msh6ca543119d2459ap137ef6jsne7f855b357c6'; // Replace with your key
 
 const PlayerStats = () => {
+  const [playerImage, setPlayerImage] = useState('');
   const [query, setQuery] = useState('');
   const [playerList, setPlayerList] = useState([]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
@@ -48,57 +49,72 @@ const PlayerStats = () => {
 
   // Fetch detailed player info, batting, and bowling stats by player id
   const fetchPlayerDetails = async (player) => {
-    setLoading(true);
-    setBattingStats(null);
-    setBowlingStats(null);
-    setPlayerInfo(null);
-    setSelectedPlayer(player);
-    setPlayerList([]);
+  setLoading(true);
+  setBattingStats(null);
+  setBowlingStats(null);
+  setPlayerInfo(null);
+  setSelectedPlayer(player);
+  setPlayerList([]);
+  setPlayerImage(''); // clear previous image while loading
 
-    try {
-      // Fetch player info
-      const infoResponse = await axios.get(
-        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}`,
-        {
-          headers: {
-            'x-rapidapi-key': RAPIDAPI_KEY,
-            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-          },
-        }
-      );
-      setPlayerInfo(infoResponse.data);
+  try {
+    // Fetch player info
+    const infoResponse = await axios.get(
+      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}`,
+      {
+        headers: {
+          'x-rapidapi-key': RAPIDAPI_KEY,
+          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+        },
+      }
+    );
 
-      // Fetch batting stats
-      const battingResponse = await axios.get(
-        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/batting`,
-        {
-          headers: {
-            'x-rapidapi-key': RAPIDAPI_KEY,
-            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-          },
-        }
-      );
-      setBattingStats(battingResponse.data);
+    const playerData = infoResponse.data;
+    setPlayerInfo(playerData);
 
-      // Fetch bowling stats
-      const bowlingResponse = await axios.get(
-        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/bowling`,
-        {
-          headers: {
-            'x-rapidapi-key': RAPIDAPI_KEY,
-            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-          },
-        }
-      );
-      setBowlingStats(bowlingResponse.data);
+    // Construct image URL from faceImageId
+    // Generate image URL with faceImageId and formatted player name
+const faceImageId = playerData.faceImageId;
+const formattedName = player.name.toLowerCase().replace(/\s+/g, '-'); // convert to lowercase and replace spaces with hyphens
+const imageUrl = faceImageId
+  ? `https://static.cricbuzz.com/a/img/v1/152x152/i1/c${faceImageId}/${formattedName}.jpg`
+  : 'https://static.cricbuzz.com/a/img/v1/152x152/i1/c616514/rohit-sharma.jpg'; // fallback
 
-    } catch (err) {
-      console.error('Error fetching player details or stats:', err);
-      alert('Error while fetching player details.');
-    } finally {
-      setLoading(false);
-    }
-  };
+setPlayerImage(imageUrl);
+
+console.log(imageUrl)
+
+    // Fetch batting stats
+    const battingResponse = await axios.get(
+      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/batting`,
+      {
+        headers: {
+          'x-rapidapi-key': RAPIDAPI_KEY,
+          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+        },
+      }
+    );
+    setBattingStats(battingResponse.data);
+
+    // Fetch bowling stats
+    const bowlingResponse = await axios.get(
+      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/bowling`,
+      {
+        headers: {
+          'x-rapidapi-key': RAPIDAPI_KEY,
+          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+        },
+      }
+    );
+    setBowlingStats(bowlingResponse.data);
+
+  } catch (err) {
+    console.error('Error fetching player details or stats:', err);
+    alert('Error while fetching player details.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="container">
@@ -145,7 +161,7 @@ const PlayerStats = () => {
           {playerInfo && (
             <div className="player-info" style={{ flex: '1', maxWidth: '300px' }}>
               <img
-                src={playerInfo.image}
+                src={playerImage}
                 alt={playerInfo.name}
                 style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
               />
