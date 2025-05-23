@@ -118,6 +118,14 @@ const International = () => {
     </div>
     <div className='loading'>No Matches</div></div>;
     }
+    if (loading) {
+      return (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Loading matches...</p>
+        </div>
+      );
+    }
 
   return (
     <div className="live-score">
@@ -148,7 +156,7 @@ const International = () => {
           Upcoming
         </button>
       </div>
-
+       
       {matches.length === 0 ? (
         <div className="no-matches">No matches found</div>
       ) : (

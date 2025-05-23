@@ -1,0 +1,283 @@
+/* PlayerStats.css */
+
+.container {
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 1rem 2rem;
+    background: #f9f9f9;
+   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #00796b;
+  }
+  
+  .title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #00796b;
+  }
+/* Enhanced Search Bar Styling */
+
+/* Enhanced Search Bar Styling */
+
+.search-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Search input with icon */
+  .search-section input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 1.5rem 0.6rem 3rem; /* left padding for icon */
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.07);
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* Search icon inside input */
+  .search-section input[type="text"]::placeholder {
+    color: #bbb;
+    font-weight: 400;
+  }
+  
+  .search-section input[type="text"]:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 8px rgba(26, 115, 232, 0.6);
+    background-color: #fff;
+  }
+  
+  /* Add search icon using a pseudo-element */
+  .search-section input[type="text"]::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23777" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.26 5.59 12.67 3 9.5 3S3.74 5.59 3.74 8.39c0 2.8 2.59 5.39 5.76 5.39 1.61 0 3.07-.69 4.07-1.77l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 13c-2.03 0-3.68-1.6-3.68-3.61C5.82 7.35 7.47 5.75 9.5 5.75s3.68 1.6 3.68 3.64c0 2.01-1.65 3.61-3.68 3.61z"/></svg>') no-repeat center center;
+    pointer-events: none;
+  }
+  
+  /* Search button */
+  .search-section button {
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #004d40, #00796b);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(26, 115, 232, 0.5);
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-section button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #155ab6, #0f3c88);
+    box-shadow: 0 8px 16px rgba(21, 90, 182, 0.7);
+    transform: translateY(-2px);
+  }
+  
+  .search-section button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(21, 90, 182, 0.5);
+  }
+  
+  .search-section button:disabled {
+    background-color: #a0c1f7;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  
+  .loading {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .player-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: white;
+  }
+  
+  .player-list h3 {
+    margin-bottom: 0.75rem;
+    color: #1a73e8;
+    font-weight: 600;
+  }
+  
+  .player-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .player-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    color: #222;
+  }
+  
+  .player-item span {
+    color: #777;
+    font-style: italic;
+  }
+  
+  .player-item:hover {
+    background-color: #e3f2fd;
+    color: #1a73e8;
+  }
+  
+  .details-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .player-info {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    max-width: 300px;
+    flex: 1 1 300px;
+  }
+  
+  .player-info img {
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+  }
+  
+  .player-info h3 {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #1a73e8;
+  }
+  
+  .player-info p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .player-bio {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.3;
+    max-height: 300px;
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    padding-top: 0.8rem;
+  }
+  
+  .player-info a {
+    margin-top: 1rem;
+    display: inline-block;
+    color: #1a73e8;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .player-info a:hover {
+    text-decoration: underline;
+    color: #155ab6;
+  }
+  
+  .table-wrapper {
+    flex: 2 1 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  .table-wrapper h3 {
+    color: #1a73e8;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  
+  th, td {
+    padding: 0.7rem 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #e3f2fd;
+    font-weight: 600;
+    color: #1a73e8;
+  }
+  
+  tr:hover td {
+    background-color: #f1f8ff;
+  }
+  
+  @media (max-width: 768px) {
+    .details-container {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .player-info,
+    .table-wrapper {
+      max-width: 100%;
+    }
+  
+    .search-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .search-section input[type="text"] {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 0.5rem;
+    }
+  
+    .search-section button {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+  

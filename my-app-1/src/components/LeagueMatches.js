@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 const LeagueMatches = () => {
   const navigate = useNavigate(); // Initialize navigate
   const [matches, setMatches] = useState([]);
-  const [selectedFilter, setSelectedFilter] = useState('upcoming')
+  const [selectedFilter, setSelectedFilter] = useState('live')
   const getTeamLogo = (team) => {
     const imageId = team.imageId
     if (imageId) {
