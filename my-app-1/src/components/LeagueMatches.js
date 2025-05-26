@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../style.css';
+import "../matches.css"
 import { Link, useNavigate } from 'react-router-dom'
 
 const LeagueMatches = () => {
