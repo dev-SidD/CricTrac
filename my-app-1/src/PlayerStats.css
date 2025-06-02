@@ -221,21 +221,21 @@
   margin-top: 15px;
 }
 
-table {
+.table-wrapper table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 10px;
   background-color: transparent;
 }
 
-table thead th {
+.table-wrapper table thead th {
   background-color: #006756;
   color: #fff;
   box-shadow: 0 5px 10px rgb(0 77 64 / 0.3);
 }
 
 
-table td {
+.table-wrapper table td {
   padding: 14px 20px;
   text-align: center;
   font-size: 1rem;
@@ -247,7 +247,7 @@ table td {
   transition: background 0.3s ease;
 }
 
-table tbody tr:hover td {
+.table-wrapper table tbody tr:hover td {
   background-color: #e0f2f1;
   color: #00796b;
   font-weight: 700;
