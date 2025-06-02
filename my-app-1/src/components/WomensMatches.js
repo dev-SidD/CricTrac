@@ -29,7 +29,7 @@ const WomensMatches = () => {
           method: 'GET',
           url: 'https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent',
           headers: {
-            'x-rapidapi-key': '41b9c77e66msh6ca543119d2459ap137ef6jsne7f855b357c6',
+            'x-rapidapi-key': '781952eb6fmshdc067305c66003dp170907jsn612eebfd4411',
             'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com'
           }
         };
