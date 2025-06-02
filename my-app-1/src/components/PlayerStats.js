@@ -13,6 +13,7 @@ const PlayerStats = () => {
   const [battingStats, setBattingStats] = useState(null);
   const [bowlingStats, setBowlingStats] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showFullBio, setShowFullBio] = useState(false);
 
   // Search players by name
   const handleSearch = async () => {
@@ -49,72 +50,72 @@ const PlayerStats = () => {
 
   // Fetch detailed player info, batting, and bowling stats by player id
   const fetchPlayerDetails = async (player) => {
-  setLoading(true);
-  setBattingStats(null);
-  setBowlingStats(null);
-  setPlayerInfo(null);
-  setSelectedPlayer(player);
-  setPlayerList([]);
-  setPlayerImage(''); // clear previous image while loading
+    setLoading(true);
+    setBattingStats(null);
+    setBowlingStats(null);
+    setPlayerInfo(null);
+    setSelectedPlayer(player);
+    setPlayerList([]);
+    setPlayerImage(''); // clear previous image while loading
 
-  try {
-    // Fetch player info
-    const infoResponse = await axios.get(
-      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}`,
-      {
-        headers: {
-          'x-rapidapi-key': RAPIDAPI_KEY,
-          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        },
-      }
-    );
+    try {
+      // Fetch player info
+      const infoResponse = await axios.get(
+        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}`,
+        {
+          headers: {
+            'x-rapidapi-key': RAPIDAPI_KEY,
+            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+          },
+        }
+      );
 
-    const playerData = infoResponse.data;
-    setPlayerInfo(playerData);
+      const playerData = infoResponse.data;
+      setPlayerInfo(playerData);
 
-    // Construct image URL from faceImageId
-    // Generate image URL with faceImageId and formatted player name
-const faceImageId = playerData.faceImageId;
-const formattedName = player.name.toLowerCase().replace(/\s+/g, '-'); // convert to lowercase and replace spaces with hyphens
-const imageUrl = faceImageId
-  ? `https://static.cricbuzz.com/a/img/v1/152x152/i1/c${faceImageId}/${formattedName}.jpg`
-  : 'https://static.cricbuzz.com/a/img/v1/152x152/i1/c616514/rohit-sharma.jpg'; // fallback
+      // Construct image URL from faceImageId
+      // Generate image URL with faceImageId and formatted player name
+      const faceImageId = playerData.faceImageId;
+      const formattedName = player.name.toLowerCase().replace(/\s+/g, '-'); // convert to lowercase and replace spaces with hyphens
+      const imageUrl = faceImageId
+        ? `https://static.cricbuzz.com/a/img/v1/152x152/i1/c${faceImageId}/${formattedName}.jpg`
+        : 'https://static.cricbuzz.com/a/img/v1/152x152/i1/c616514/rohit-sharma.jpg'; // fallback
 
-setPlayerImage(imageUrl);
+      setPlayerImage(imageUrl);
 
-console.log(imageUrl)
+      console.log(imageUrl)
 
-    // Fetch batting stats
-    const battingResponse = await axios.get(
-      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/batting`,
-      {
-        headers: {
-          'x-rapidapi-key': RAPIDAPI_KEY,
-          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        },
-      }
-    );
-    setBattingStats(battingResponse.data);
+      // Fetch batting stats
+      const battingResponse = await axios.get(
+        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/batting`,
+        {
+          headers: {
+            'x-rapidapi-key': RAPIDAPI_KEY,
+            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+          },
+        }
+      );
+      setBattingStats(battingResponse.data);
 
-    // Fetch bowling stats
-    const bowlingResponse = await axios.get(
-      `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/bowling`,
-      {
-        headers: {
-          'x-rapidapi-key': RAPIDAPI_KEY,
-          'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-        },
-      }
-    );
-    setBowlingStats(bowlingResponse.data);
+      // Fetch bowling stats
+      const bowlingResponse = await axios.get(
+        `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/bowling`,
+        {
+          headers: {
+            'x-rapidapi-key': RAPIDAPI_KEY,
+            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
+          },
+        }
+      );
+      setBowlingStats(bowlingResponse.data);
 
-  } catch (err) {
-    console.error('Error fetching player details or stats:', err);
-    alert('Error while fetching player details.');
-  } finally {
-    setLoading(false);
-  }
-};
+    } catch (err) {
+      console.error('Error fetching player details or stats:', err);
+      alert('Error while fetching player details.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="container">
@@ -153,53 +154,47 @@ console.log(imageUrl)
       )}
 
       {(playerInfo || battingStats || bowlingStats) && (
-        <div
-          className="details-container"
-          style={{ display: 'flex', gap: '2rem', marginTop: '2rem', flexWrap: 'wrap' }}
-        >
-          {/* Player Info */}
+        <div className="details-container">
+
+          {/* Player Info Section */}
           {playerInfo && (
-            <div className="player-info" style={{ flex: '1', maxWidth: '300px' }}>
-              <img
-                src={playerImage}
-                alt={playerInfo.name}
-                style={{ width: '100%', borderRadius: '8px', marginBottom: '10px' }}
-              />
-              <h3>
-                {playerInfo.name} {playerInfo.nickName ? `(${playerInfo.nickName})` : ''}
-              </h3>
-              <p><strong>Country:</strong> {playerInfo.intlTeam}</p>
-              <p><strong>Role:</strong> {playerInfo.role}</p>
-              <p><strong>Batting Style:</strong> {playerInfo.bat}</p>
-              <p><strong>Bowling Style:</strong> {playerInfo.bowl}</p>
-              <p><strong>Date of Birth:</strong> {playerInfo.DoBFormat || playerInfo.DoB}</p>
-              <p><strong>Birth Place:</strong> {playerInfo.birthPlace}</p>
-              <p><strong>Height:</strong> {playerInfo.height}</p>
-              <p><strong>Teams:</strong> {playerInfo.teams}</p>
+            <section className="section player-section">
+              <h2 className="section-title">Player Information</h2>
+              <div className="player-info">
+                <img src={playerImage} alt={playerInfo.name} className="player-image" />
+                <h3>{playerInfo.name} {playerInfo.nickName && `(${playerInfo.nickName})`}</h3>
+                <p><strong>Country:</strong> {playerInfo.intlTeam}</p>
+                <p><strong>Role:</strong> {playerInfo.role}</p>
+                <p><strong>Batting Style:</strong> {playerInfo.bat}</p>
+                <p><strong>Bowling Style:</strong> {playerInfo.bowl}</p>
+                <p><strong>Date of Birth:</strong> {playerInfo.DoBFormat || playerInfo.DoB}</p>
+                <p><strong>Birth Place:</strong> {playerInfo.birthPlace}</p>
+                <p><strong>Height:</strong> {playerInfo.height}</p>
+                <p><strong>Teams:</strong> {playerInfo.teams}</p>
+                <div className="player-bio">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: showFullBio
+                        ? playerInfo.bio
+                        : `${playerInfo.bio?.slice(0, 400)}...`,
+                    }}
+                  />
+                  {playerInfo.bio && playerInfo.bio.length > 400 && (
+                    <button className="toggle-bio" onClick={() => setShowFullBio(!showFullBio)}>
+                      {showFullBio ? 'Read less' : 'Read more'}
+                    </button>
+                  )}
+                </div>
 
-              <div
-                className="player-bio"
-                style={{ marginTop: '10px', fontSize: '0.9rem', color: '#333', maxHeight: '300px', overflowY: 'auto' }}
-                dangerouslySetInnerHTML={{ __html: playerInfo.bio }}
-              />
-
-              <a
-                href={playerInfo.appIndex?.webURL}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ display: 'block', marginTop: '10px', color: '#007bff' }}
-              >
-                View Full Profile on Cricbuzz
-              </a>
-            </div>
+              </div>
+            </section>
           )}
 
-          {/* Batting & Bowling Stats */}
-          <div style={{ flex: '2 1 600px', display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-            {/* Batting Stats */}
-            {battingStats && (
-              <div className="table-wrapper" style={{ flex: '1 1 280px', overflowX: 'auto' }}>
-                <h3>Batting Stats - {selectedPlayer?.name}</h3>
+          {/* Batting Stats Section */}
+          {battingStats && (
+            <section className="section stats-section">
+              <h2 className="section-title">Batting Stats - {selectedPlayer?.name}</h2>
+              <div className="table-wrapper">
                 <table>
                   <thead>
                     <tr>
@@ -219,12 +214,14 @@ console.log(imageUrl)
                   </tbody>
                 </table>
               </div>
-            )}
+            </section>
+          )}
 
-            {/* Bowling Stats */}
-            {bowlingStats && (
-              <div className="table-wrapper" style={{ flex: '1 1 280px', overflowX: 'auto' }}>
-                <h3>Bowling Stats - {selectedPlayer?.name}</h3>
+          {/* Bowling Stats Section */}
+          {bowlingStats && (
+            <section className="section stats-section">
+              <h2 className="section-title">Bowling Stats - {selectedPlayer?.name}</h2>
+              <div className="table-wrapper">
                 <table>
                   <thead>
                     <tr>
@@ -244,10 +241,12 @@ console.log(imageUrl)
                   </tbody>
                 </table>
               </div>
-            )}
-          </div>
+            </section>
+          )}
+
         </div>
       )}
+
     </div>
   );
 };

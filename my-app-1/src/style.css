@@ -7,10 +7,11 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: url("../public/images/bg-1.avif") no-repeat center fixed;  
+  background: url("../public/images/bg-1.avif") no-repeat center center fixed;
   background-blend-mode: overlay;
-  background-attachment: fixed;
-  color: #fff;
+  color: #004d40;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
 }
 

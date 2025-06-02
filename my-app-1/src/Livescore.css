@@ -1,381 +1,391 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
 /* Scorecard Container */
 .scorecard {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 15px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: "Poppins", sans-serif;
-    color: #333;
-  }
-  
-  /* Match Header */
-  .match-header {
-    text-align: center;
-    padding-bottom: 15px;
-    border-bottom: 2px solid #00796b;
-  }
-  
-  .match-header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #00796b;
-    margin-bottom: 5px;
-  }
-  
-  .match-header h2 {
-    font-size: 16px;
-    font-weight: 500;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .teams {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 600;
-  }
-  
-  .teams .vs {
-    font-weight: 700;
-    color: #ff5722;
-  }
-  
-  .match-status {
-    font-size: 14px;
-    font-weight: 500;
-    color: #ff5722;
-    margin-top: 10px;
-  }
-  
-  /* Innings Card */
-  .innings-card {
-    background: #f9f9f9;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-  }
-  
-  .innings-title {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-weight: 600;
-    color: #00796b;
-    border-bottom: 2px solid #00796b;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .score {
-    font-weight: 700;
-    color: #ff5722;
-  }
-  
-  .overs {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  /* Tables */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  th {
-    background: #00796b;
-    color: white;
-    font-weight: 600;
-  }
-  
-  td {
-    font-size: 14px;
-    font-weight: 500;
-  }
-  
-  tr:not(:last-child) {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Special Styling */
-  .caption {
-    font-size: 12px;
-    font-weight: 500;
-    color: #ff5722;
-    margin-left: 5px;
-  }
-  
-  .not-out {
-    font-weight: 600;
-    color: #00796b;
-  }
-  
-  /* Extras and Partnerships */
-  .match-details {
-    margin-top: 15px;
-    padding: 10px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  }
-  
-  .extras, 
-  .partnerships, 
-  .wickets-section {
-    margin-bottom: 15px;
-    padding: 12px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Section Headers */
-  .extras h4, 
-  .partnerships h4, 
-  .wickets-section h4 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #00796b;
-    border-bottom: 2px solid #00796b;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-  
-  /* Partnership & Wicket Section */
-  .partnership, 
-  .wickets-section {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    line-height: 1.5;
-  }
-  
-  /* Partnership Details */
-  .partnership-details {
-    font-size: 13px;
-    color: #555;
-    font-style: italic;
-  }
-  .partnerships {
-  margin-bottom: 15px;
-  padding: 12px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+  backdrop-filter: saturate(180%) blur(15px);
+
+  border: 1px solid rgba(0, 121, 107, 0.15);
 }
 
-/* Section Header */
-.partnerships h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #00796b;
-  border-bottom: 2px solid #00796b;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+
+/* Back Button */
+.back-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #00796b, #004d40);
+  color: #ffffff;
+  border: none;
+  padding: 14px 32px;
+  font-size: 17px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  font-weight: 700;
+  box-shadow:
+    0 5px 15px rgba(0, 121, 107, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* Partnership List */
-.partnership {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 10px;
-  border-radius: 6px;
-  border-left: 4px solid #0288d1;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.5;
+.back-button:hover {
+  background: linear-gradient(135deg, #004d40, #00251a);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 8px 25px rgba(0, 77, 64, 0.8);
 }
 
-/* Partnership Details (Balls faced) */
-.partnership-details {
-  font-size: 13px;
-  color: #555;
+/* Match Header */
+.match-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.match-header h1 {
+  font-size: 36px;
+  color: #003c3c;
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+.teams {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.vs {
+  color: #546e7a;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0 8px;
+}
+
+.match-status p {
+  font-size: 17px;
+  color: #37474f;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+}
+
+.mom-section h3 {
+  color: #d84315;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.mom-player {
+  font-weight: 700;
+  font-size: 20px;
+  color: #2e7d32;
+  letter-spacing: 0.02em;
+}
+
+/* Innings Card */
+.innings-card {
+  background-color: #ffffffdd;
+  border-left: 6px solid #009688;
+  border-radius: 20px;
+  padding: 28px 36px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+
+.innings-title {
+  font-size: 24px;
+  color: #00695c;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.overs {
+  font-size: 15px;
+  color: #757575;
   font-style: italic;
 }
+
+/* Table Styles */
+table {
+  width: 100%;
+  margin-top: 24px;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 16px 20px;
+  text-align: center;
+  background: #f9fafb;
+  color: #37474f;
+  font-weight: 600;
+  border-bottom: none;
+  transition: background 0.3s ease;
+  
+}
+
+th {
+  background: #b2dfdb;
+  color: #004d40;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  font-weight: 500;
+  color: #1e1e2f;
+  font-size: 15px;
+}
+
+tr:hover td {
+  background-color: #e0f2f1;
+  color: #004d40;
+  
+}
+
+.not-out td {
+  color: #1b5e20;
+  font-weight: 700;
+  font-style: normal;
+  background: #e6f4ea;
+}
+
+/* Caption Style */
+.caption {
+  color: #c62828;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  margin-top: 12px;
+}
+
+/* Extras, Wickets, Partnerships */
+.match-details {
+  margin-top: 28px;
+}
+
+.extras p {
+  font-size: 16px;
+  color: #455a64;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.wickets-section,
 .partnerships {
-    margin-bottom: 20px;
-    padding: 15px;
-    background: #f4f8fb;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding: 22px;
+  background-color: #f0fdf4;
+  border-left: 5px solid #66bb6a;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0, 128, 0, 0.1);
+}
+.partnerships h4, .wickets-section h4{
+  font-size: 20px;
+  margin: 5px;
+}
+.wicket-item,
+.partnership {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #2e7d32;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.wicket-player {
+  font-weight: 700;
+  color: #1b5e20;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.wicket-score {
+  margin-left: 10px;
+  color: #d32f2f;
+  font-weight: 700;
+}
+
+.wicket-over {
+  margin-left: 10px;
+  color: #1565c0;
+  font-weight: 700;
+}
+
+.partnership-details {
+  color: #33691e;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Loading & Error */
+.loading,
+.error {
+  text-align: center;
+  font-size: 20px;
+  color: #d84315;
+  margin-top: 60px;
+  animation: fadeIn 1.2s ease-in-out forwards;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
   }
-  
-  /* Section Header */
-  .partnerships h4 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #00695c;
-    border-bottom: 3px solid #00695c;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Partnership List */
-  .partnership {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
+}
+
+/* Responsive Layout */
+
+
+/* Player Icons */
+.player-icon {
+  margin-left: 8px;
+  vertical-align: middle;
+  color: #00796b;
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 1px rgba(0, 121, 107, 0.7));
+  transition: color 0.3s ease;
+}
+
+.player-icon:hover {
+  color: #004d40;
+  cursor: default;
+}
+@media screen and (max-width: 768px) {
+  .scorecard {
+    margin: 10px 8px;
     padding: 12px 15px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    border-left: 5px solid #0288d1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
+    border-radius: 12px;
   }
-  
-  
-  /* Partnership Details (Balls faced) */
-  .partnership-details {
-    font-size: 14px;
-    color: #444;
-    font-weight: 400;
-    font-style: italic;
-    margin-left: 8px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .partnership {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px;
-    }
-    
-    .partnership-details {
-      margin-top: 5px;
-    }
-  }
-  
-  
-  /* Wicket List */
-  .wickets-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .wicket-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
-    padding: 10px;
-    border-radius: 6px;
-    border-left: 4px solid #d32f2f;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .wicket-player {
-    font-weight: bold;
-    color: #d9534f;
-  }
-  
-  .wicket-score {
-    font-weight: bold;
-    color: #0275d8;
-  }
-  
-  .wicket-over {
-    font-size: 13px;
-    color: #555;
-  }
-  
-  /* Loading & Error Messages */
-  .loading, .error {
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ff5722;
-    margin-top: 20px;
-  }
+
   .back-button {
-    background-color: #00796b;
-    color: white;
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 0;
+    margin-bottom: 12px;
+    border-radius: 25px;
+  }
+
+  .match-header h1 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .teams {
     font-size: 14px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    display: inline-block;
+    margin-bottom: 2px;
+  }
+
+  .vs {
+    font-size: 11px;
+  }
+
+  .match-status p {
+    font-size: 11px;
+  }
+
+  .mom-section h3 {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+
+  .mom-player {
+    font-size: 13px;
+  }
+
+  .innings-card {
+    padding: 10px 12px;
+    border-radius: 10px;
     margin-bottom: 15px;
   }
-  
-  .back-button:hover {
-    background-color: #004d40;
+
+  .innings-title {
+    font-size: 14px;
+    margin-bottom: 4px;
   }
-  
-  .back-button:active {
-    background-color: #00332e;
+
+  .overs {
+    font-size: 10px;
   }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .scorecard {
-      padding: 12px;
-    }
-  
-    .teams {
-      flex-direction: column;
-      gap: 5px;
-    }
-  
-    .innings-title {
-      flex-direction: column;
-      gap: 5px;
-      text-align: center;
-    }
-  
-    th, td {
-      padding: 6px;
-      font-size: 13px;
-    }
+
+  table {
+    font-size: 10px;
+    margin-top: 10px;
   }
-  
-  @media screen and (max-width: 480px) {
-    .scorecard {
-      padding: 10px;
-    }
-  
-    .teams {
-      font-size: 14px;
-    }
-  
-    .innings-title {
-      font-size: 14px;
-    }
-  
-    th, td {
-      font-size: 12px;
-    }
-  
-    .loading, .error {
-      font-size: 14px;
-    }
+
+  th, td {
+    padding: 5px 4px;
   }
-  
+
+  th {
+    font-size: 11px;
+  }
+
+  td {
+    font-size: 10px;
+  }
+
+  tr:hover {
+    background-color: #fafafa;
+  }
+
+  .match-details {
+    margin-top: 10px;
+  }
+
+  .extras p,
+  .wicket-item,
+  .partnership {
+    font-size: 11px;
+  }
+
+  .wickets-section,
+  .partnerships {
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  .loading,
+  .error {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .player-icon {
+    font-size: 0.75rem;
+    margin-left: 3px;
+  }
+}
