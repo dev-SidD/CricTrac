@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../PlayerStats.css';
 
-const RAPIDAPI_KEY = '781952eb6fmshdc067305c66003dp170907jsn612eebfd4411'; // Replace with your key
+const RAPIDAPI_KEY = '781952eb6fmshdc067305c66003dp170907jsn612eebfd4411';
 
 const PlayerStats = () => {
   const [playerImage, setPlayerImage] = useState('');
@@ -15,7 +14,6 @@ const PlayerStats = () => {
   const [loading, setLoading] = useState(false);
   const [showFullBio, setShowFullBio] = useState(false);
 
-  // Search players by name
   const handleSearch = async () => {
     setBattingStats(null);
     setBowlingStats(null);
@@ -36,19 +34,15 @@ const PlayerStats = () => {
       );
 
       const players = res.data.player || [];
-      if (players.length === 0) {
-        alert('No players found.');
-      }
+      if (players.length === 0) alert('No players found.');
       setPlayerList(players);
-    } catch (err) {
-      console.error('Error during search:', err);
+    } catch {
       alert('Error while searching for players.');
     } finally {
       setLoading(false);
     }
   };
 
-  // Fetch detailed player info, batting, and bowling stats by player id
   const fetchPlayerDetails = async (player) => {
     setLoading(true);
     setBattingStats(null);
@@ -56,11 +50,10 @@ const PlayerStats = () => {
     setPlayerInfo(null);
     setSelectedPlayer(player);
     setPlayerList([]);
-    setPlayerImage(''); // clear previous image while loading
+    setPlayerImage('');
 
     try {
-      // Fetch player info
-      const infoResponse = await axios.get(
+      const infoRes = await axios.get(
         `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}`,
         {
           headers: {
@@ -69,48 +62,28 @@ const PlayerStats = () => {
           },
         }
       );
+      const data = infoRes.data;
+      setPlayerInfo(data);
 
-      const playerData = infoResponse.data;
-      setPlayerInfo(playerData);
-
-      // Construct image URL from faceImageId
-      // Generate image URL with faceImageId and formatted player name
-      const faceImageId = playerData.faceImageId;
-      const formattedName = player.name.toLowerCase().replace(/\s+/g, '-'); // convert to lowercase and replace spaces with hyphens
+      const faceImageId = data.faceImageId;
+      const formattedName = player.name.toLowerCase().replace(/\s+/g, '-');
       const imageUrl = faceImageId
         ? `https://static.cricbuzz.com/a/img/v1/152x152/i1/c${faceImageId}/${formattedName}.jpg`
-        : 'https://static.cricbuzz.com/a/img/v1/152x152/i1/c616514/rohit-sharma.jpg'; // fallback
-
+        : 'https://static.cricbuzz.com/a/img/v1/152x152/i1/c616514/rohit-sharma.jpg';
       setPlayerImage(imageUrl);
 
-      console.log(imageUrl)
-
-      // Fetch batting stats
-      const battingResponse = await axios.get(
+      const batRes = await axios.get(
         `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/batting`,
-        {
-          headers: {
-            'x-rapidapi-key': RAPIDAPI_KEY,
-            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-          },
-        }
+        { headers: { 'x-rapidapi-key': RAPIDAPI_KEY, 'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com' } }
       );
-      setBattingStats(battingResponse.data);
+      setBattingStats(batRes.data);
 
-      // Fetch bowling stats
-      const bowlingResponse = await axios.get(
+      const bowlRes = await axios.get(
         `https://cricbuzz-cricket.p.rapidapi.com/stats/v1/player/${player.id}/bowling`,
-        {
-          headers: {
-            'x-rapidapi-key': RAPIDAPI_KEY,
-            'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com',
-          },
-        }
+        { headers: { 'x-rapidapi-key': RAPIDAPI_KEY, 'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com' } }
       );
-      setBowlingStats(bowlingResponse.data);
-
-    } catch (err) {
-      console.error('Error fetching player details or stats:', err);
+      setBowlingStats(bowlRes.data);
+    } catch {
       alert('Error while fetching player details.');
     } finally {
       setLoading(false);
@@ -118,35 +91,43 @@ const PlayerStats = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="title">Search Cricketer Stats</h2>
+    <div className="max-w-6xl mx-auto px-4 py-8 text-white font-poppins">
+      <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 text-transparent bg-clip-text mb-8">
+        Cricketer Stats Search
+      </h2>
 
-      <div className="search-section">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Enter player name"
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+          className="w-full sm:w-80 px-4 py-2 rounded-md border border-gray-600 text-black shadow-md"
         />
-        <button onClick={handleSearch} disabled={loading}>
+        <button
+          onClick={handleSearch}
+          disabled={loading}
+          className="px-6 py-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:opacity-90 rounded-lg font-semibold text-white shadow-md"
+        >
           Search
         </button>
       </div>
 
-      {loading && <p className="loading">Loading...</p>}
+      {loading && <p className="text-center text-sm text-gray-400 mb-4">Loading...</p>}
 
       {playerList.length > 0 && (
-        <div className="player-list">
-          <h3>Select a Player:</h3>
-          <ul>
+        <div className="bg-gray-900 rounded-xl p-5 mb-6 shadow-md">
+          <h3 className="text-lg font-semibold text-teal-300 mb-3">Select a Player:</h3>
+          <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
             {playerList.map((player) => (
               <li
                 key={player.id}
-                className="player-item"
+                className="bg-gray-800 hover:bg-gray-700 transition rounded-lg px-4 py-2 cursor-pointer"
                 onClick={() => fetchPlayerDetails(player)}
               >
-                {player.name} - <span>{player.teamName}</span>
+                <span className="font-medium">{player.name}</span>
+                <span className="block text-sm text-gray-400">{player.teamName}</span>
               </li>
             ))}
           </ul>
@@ -154,99 +135,89 @@ const PlayerStats = () => {
       )}
 
       {(playerInfo || battingStats || bowlingStats) && (
-        <div className="details-container">
-
-          {/* Player Info Section */}
+        <div className="space-y-8">
           {playerInfo && (
-            <section className="section player-section">
-              <h2 className="section-title">Player Information</h2>
-              <div className="player-info">
-                <img src={playerImage} alt={playerInfo.name} className="player-image" />
-                <h3>{playerInfo.name} {playerInfo.nickName && `(${playerInfo.nickName})`}</h3>
-                <p><strong>Country:</strong> {playerInfo.intlTeam}</p>
-                <p><strong>Role:</strong> {playerInfo.role}</p>
-                <p><strong>Batting Style:</strong> {playerInfo.bat}</p>
-                <p><strong>Bowling Style:</strong> {playerInfo.bowl}</p>
-                <p><strong>Date of Birth:</strong> {playerInfo.DoBFormat || playerInfo.DoB}</p>
-                <p><strong>Birth Place:</strong> {playerInfo.birthPlace}</p>
-                <p><strong>Height:</strong> {playerInfo.height}</p>
-                <p><strong>Teams:</strong> {playerInfo.teams}</p>
-                <div className="player-bio">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: showFullBio
-                        ? playerInfo.bio
-                        : `${playerInfo.bio?.slice(0, 400)}...`,
-                    }}
-                  />
-                  {playerInfo.bio && playerInfo.bio.length > 400 && (
-                    <button className="toggle-bio" onClick={() => setShowFullBio(!showFullBio)}>
+            <div className="bg-gray-900 p-6 rounded-xl shadow-lg">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <img
+                  src={playerImage}
+                  alt={playerInfo.name}
+                  className="w-36 h-36 rounded-full object-cover border-2 border-teal-400 shadow"
+                />
+                <div className="space-y-2 text-sm sm:text-base">
+                  <p><strong>Name:</strong> {playerInfo.name} {playerInfo.nickName && `(${playerInfo.nickName})`}</p>
+                  <p><strong>Country:</strong> {playerInfo.intlTeam}</p>
+                  <p><strong>Role:</strong> {playerInfo.role}</p>
+                  <p><strong>Batting Style:</strong> {playerInfo.bat}</p>
+                  <p><strong>Bowling Style:</strong> {playerInfo.bowl}</p>
+                  <p><strong>DOB:</strong> {playerInfo.DoBFormat || playerInfo.DoB}</p>
+                  <p><strong>Birth Place:</strong> {playerInfo.birthPlace}</p>
+                  <p><strong>Height:</strong> {playerInfo.height}</p>
+                  <p><strong>Teams:</strong> {playerInfo.teams}</p>
+                </div>
+              </div>
+
+              {playerInfo.bio && (
+                <div className="mt-4 text-sm text-gray-300 leading-relaxed">
+                  <div dangerouslySetInnerHTML={{
+                    __html: showFullBio
+                      ? playerInfo.bio
+                      : `${playerInfo.bio.slice(0, 400)}...`,
+                  }} />
+                  {playerInfo.bio.length > 400 && (
+                    <button
+                      className="mt-2 text-teal-400 hover:underline"
+                      onClick={() => setShowFullBio(!showFullBio)}
+                    >
                       {showFullBio ? 'Read less' : 'Read more'}
                     </button>
                   )}
                 </div>
-
-              </div>
-            </section>
+              )}
+            </div>
           )}
 
-          {/* Batting Stats Section */}
           {battingStats && (
-            <section className="section stats-section">
-              <h2 className="section-title">Batting Stats - {selectedPlayer?.name}</h2>
-              <div className="table-wrapper">
-                <table>
-                  <thead>
-                    <tr>
-                      {battingStats.headers.map((header, idx) => (
-                        <th key={idx}>{header}</th>
-                      ))}
-                    </tr>
+            <div className="bg-gray-800 p-5 rounded-xl shadow">
+              <h3 className="text-lg font-semibold text-teal-300 mb-3">Batting Stats - {selectedPlayer?.name}</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-teal-600 text-white">
+                    <tr>{battingStats.headers.map((h, i) => <th key={i} className="p-2">{h}</th>)}</tr>
                   </thead>
                   <tbody>
-                    {battingStats.values.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        {row.values.map((val, cIdx) => (
-                          <td key={cIdx}>{val}</td>
-                        ))}
+                    {battingStats.values.map((row, i) => (
+                      <tr key={i} className="border-b border-gray-700">
+                        {row.values.map((val, j) => <td key={j} className="p-2">{val}</td>)}
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </section>
+            </div>
           )}
 
-          {/* Bowling Stats Section */}
           {bowlingStats && (
-            <section className="section stats-section">
-              <h2 className="section-title">Bowling Stats - {selectedPlayer?.name}</h2>
-              <div className="table-wrapper">
-                <table>
-                  <thead>
-                    <tr>
-                      {bowlingStats.headers.map((header, idx) => (
-                        <th key={idx}>{header}</th>
-                      ))}
-                    </tr>
+            <div className="bg-gray-800 p-5 rounded-xl shadow">
+              <h3 className="text-lg font-semibold text-teal-300 mb-3">Bowling Stats - {selectedPlayer?.name}</h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-teal-600 text-white">
+                    <tr>{bowlingStats.headers.map((h, i) => <th key={i} className="p-2">{h}</th>)}</tr>
                   </thead>
                   <tbody>
-                    {bowlingStats.values.map((row, rIdx) => (
-                      <tr key={rIdx}>
-                        {row.values.map((val, cIdx) => (
-                          <td key={cIdx}>{val}</td>
-                        ))}
+                    {bowlingStats.values.map((row, i) => (
+                      <tr key={i} className="border-b border-gray-700">
+                        {row.values.map((val, j) => <td key={j} className="p-2">{val}</td>)}
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </section>
+            </div>
           )}
-
         </div>
       )}
-
     </div>
   );
 };
