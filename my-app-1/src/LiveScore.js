@@ -86,7 +86,7 @@ const Livescore = () => {
   const scoreCards = matchData.scoreCard || [];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-4 py-8 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100  font-sans transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         <button
           className="mb-8 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 flex items-center gap-2"
@@ -99,7 +99,7 @@ const Livescore = () => {
         </button>
 
         {/* Match Header Section */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 mb-10 text-center">
+        <div className="bg-white dark:bg-gray-800 p-6  shadow-lg border border-gray-200 dark:border-gray-700 mb-10 text-center">
           <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">
             {header.seriesDesc}
           </h1>
@@ -156,7 +156,7 @@ const Livescore = () => {
           const score = innings?.scoreDetails || {};
 
           return (
-            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 mb-10 transition-transform hover:scale-[1.005] duration-200">
+            <div key={index} className="bg-white dark:bg-gray-800   shadow-lg mb-10v p-2">
               <h2 className="text-2xl lg:text-3xl font-bold text-blue-700 dark:text-blue-400 mb-3 flex flex-wrap items-baseline">
                 {innings?.batTeamDetails?.batTeamName} Innings
                 <span className="text-gray-600 dark:text-gray-300 ml-2 text-base lg:text-xl font-semibold">
@@ -170,12 +170,12 @@ const Livescore = () => {
                 <table className="w-full text-left text-sm lg:text-base border-collapse rounded-lg overflow-hidden">
                   <thead className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-medium uppercase text-xs lg:text-sm">
                     <tr>
-                      <th className="p-3">Batter</th> {/* This column will now contain name + dismissal */}
-                      <th className="p-3 text-center">R</th>
-                      <th className="p-3 text-center">B</th>
-                      <th className="p-3 text-center">4s</th>
-                      <th className="p-3 text-center">6s</th>
-                      <th className="p-3 text-center">SR</th>
+                      <th className="p-2">Batter</th> {/* This column will now contain name + dismissal */}
+                      <th className="p-2 text-center">R</th>
+                      <th className="p-2 text-center">B</th>
+                      <th className="p-2 text-center">4s</th>
+                      <th className="p-2 text-center">6s</th>
+                      <th className="p-2 text-center">SR</th>
                       {/* Removed Dismissal column header */}
                     </tr>
                   </thead>
@@ -194,11 +194,11 @@ const Livescore = () => {
                                 <p className="text-gray-500 dark:text-gray-400 text-xs lg:text-sm mt-0.5">{b.outDesc}</p>
                             )}
                           </td>
-                          <td className="p-3 text-center font-bold">{b.runs}</td>
-                          <td className="p-3 text-center">{b.balls}</td>
-                          <td className="p-3 text-center">{b.fours}</td>
-                          <td className="p-3 text-center">{b.sixes}</td>
-                          <td className="p-3 text-center">{b.strikeRate || '-'}</td>
+                          <td className="p-2 text-center font-bold">{b.runs}</td>
+                          <td className="p-2 text-center">{b.balls}</td>
+                          <td className="p-2 text-center">{b.fours}</td>
+                          <td className="p-2 text-center">{b.sixes}</td>
+                          <td className="p-2 text-center">{b.strikeRate || '-'}</td>
                           {/* Removed Dismissal column data */}
                         </tr>
                       ))
