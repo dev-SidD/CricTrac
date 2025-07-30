@@ -46,7 +46,7 @@ const Matches = () => {
           method: 'GET',
           url: `https://cricbuzz-cricket.p.rapidapi.com/matches/v1/${selectedFilter}`,
           headers: {
-            'x-rapidapi-key': '41b9c77e66msh6ca543119d2459ap137ef6jsne7f855b357c6',
+            'x-rapidapi-key': '03bf74d969msh9ec9586f18b25c7p1105e7jsnbf3da790dc00',
             'x-rapidapi-host': 'cricbuzz-cricket.p.rapidapi.com'
           }
         };

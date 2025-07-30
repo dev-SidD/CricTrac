@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const RAPIDAPI_KEY = '41b9c77e66msh6ca543119d2459ap137ef6jsne7f855b357c6';
+const RAPIDAPI_KEY = '03bf74d969msh9ec9586f18b25c7p1105e7jsnbf3da790dc00';
 
 const PlayerStats = () => {
   const [playerImage, setPlayerImage] = useState('');

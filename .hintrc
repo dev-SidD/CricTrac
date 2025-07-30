@@ -7,5 +7,16 @@
     "not ie 11",
     "not and_ff <= 126",
     "not firefox <= 127"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "backdrop-filter",
+          "user-select"
+        ]
+      }
+    ]
+  }
 }
