@@ -162,7 +162,7 @@ const Matches = () => {
                   transform hover:-translate-y-1 transition-all duration-300
                   cursor-pointer relative overflow-hidden
                 "
-                onClick={() => navigate(`/livescore/${matchInfo.matchId}`)}
+                // onClick={() => navigate(`/livescore/${matchInfo.matchId}`)}
               >
                 {match.matchStarted && !match.matchEnded && (
                   <span className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
