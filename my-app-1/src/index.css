@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #111827 0%, #1e3a8a 50%, #312e81 100%);
+  }
+}
