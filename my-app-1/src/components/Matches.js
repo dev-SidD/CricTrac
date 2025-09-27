@@ -96,7 +96,7 @@ const Matches = () => {
     return (
       <div 
         className="relative group backdrop-blur-xl bg-white/70 dark:bg-gray-800/70 rounded-3xl shadow-lg hover:shadow-2xl border border-white/20 dark:border-gray-700/50 transition-all duration-500 transform hover:-translate-y-2 overflow-hidden"
-        // onClick={() => navigate(`/livescore/${matchInfo.matchId}`)} // Uncomment when route is ready
+         onClick={() => navigate(`/livescore/${matchInfo.matchId}`)} // Uncomment when route is ready
       >
         <div className="p-6">
           {match.matchStarted && !match.matchEnded && (
